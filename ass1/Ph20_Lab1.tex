@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+
+\title{Ph20 Lab 1: Intro to Python}
+\author{Neil McBlane: 2050386}
+
+\maketitle
+
+\section*{Question 3: Lissajous figures}
+\subsection*{a: Closed curves for rational $\frac{f_x}{f_y}$}
+
+Figure \ref{fig:closed} shows that for rational values of $\frac{f_x}{f_y}$, namely $1$ and $\frac{1}{2}$, closed curves are obtained by plotting X vs Y. The irrational fraction $\frac{1}{\pi}$ demonstrates a clear precession.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/fxfy_ra_irra.pdf}
+\caption{Plots of $X = \cos(2\pi f_x t)$ vs $Y = \sin(2\pi f_y t + \phi)$ for varied $f_x$ and $f_y$. The left plot shows rational fractions and the right shows an irrational fraction.}
+\label{fig:closed}
+\end{figure}
+
+In the case where $f_x$ is larger than $f_y$, as is shown in Figure \ref{fig:side}, we see a change in shape of the path. It remains closed in the sense that for each period, the exact same route is taken; but the it is not closed in the sense that it is discontinuous. The same observation is made for any such arrangement of the frequencies.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/2to1_ratio.pdf}
+\caption{Plot of $X = \cos(2\pi f_x t)$ vs $Y = \sin(2\pi f_y t + \phi)$ for $f_x=2$ and $f_y=1$.}
+\label{fig:side}
+\end{figure}
+
+\clearpage
+
+\subsection*{b: The effect of changing $\frac{f_x}{f_y}$}
+Figure \ref{fig:ratiosimp} shows the effect that changing the ratio of $f_x:f_y$ has on the shape of the curves. These plots are for the simple case where $f_x=1$ and $f_Y$ is an integer. There is a clear one-to-one relationship between the value of $f_y$ and the number of ``lobes'' in the curve. This is as for every complete period of X there will be that many complete periods of Y.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/fxfy_ratio_simple.pdf}
+\caption{Plot of $X = \cos(2\pi f_x t)$ vs $Y = \sin(2\pi f_y t + \phi)$ for varied $f_x$ and $f_y$. The curves demonstrate the effect changing the frequency ratio has on their shape.}
+\label{fig:ratiosimp}
+\end{figure}
+
+Figure \ref{fig:ratiocomp} demonstrates that for less simple ratios the shape becomes more complex. For $f_x=10$ and $f_y=13$, a complete curve is only achieved every 10 periods of X, since this corresponds to the 13 completed periods of Y.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/fxfy_ratio_comp.pdf}
+\caption{Plot of $X = \cos(2\pi f_x t)$ vs $Y = \sin(2\pi f_y t + \phi)$ for varied $f_x=10$ and $f_y=13$. The shape is more complex than for simple 1:n ratios.}
+\label{fig:ratiocomp}
+\end{figure}
+\clearpage
+
+\subsection*{c: The effect of $\phi$}
+
+Figure \ref{fig:phi} shows the effect of changing the phase difference between X and Y. At zero difference, X and Y are in opposite phase so produce a perfect circle. As the phase difference approaches $\frac{\pi}{2}$, the circle is squeezed into an ellipse with semi-major axis along X=Y. When the phase is equal to $\frac{\pi}{2}$ we see a straight line along this axis since $\sin$ and $\cos$ are defined to be separated in phase by this value. For phase $\frac{\pi}{2} < \phi < \pi$ we see the same behaviour, but instead along X=-Y. The pattern repeats for $\pi < \phi < 2\pi$. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{images/phi_var.pdf}
+\caption{Plot of $X = \cos(2\pi f_x t)$ vs $Y = \sin(2\pi f_y t + \phi)$ for $f_x=f_y$ and varied $\phi$. We see a contaction of the circle at zero phase to an ellipse.}
+\label{fig:phi}
+\end{figure}
+
+By looking at these figures on an oscilloscope, one can determine both the relative phase and frequency of two circuits. If we see a single circle/ellipse, we know that the circuits have the same frequencies (if we see two lobes, one is twice the frequency of the other, and so on). We can also tell the relative phase of the circuits. Defining a relative phase of zero to be when there is a straight line along Y=X, for instance, we can easily tell the phase difference from the eccentricity of the figure.
+
+\clearpage
+
+\section*{Question 4: Beats}
+
+A few examples of different beat signals can be seen in Figures \ref{fig:beat1}, \ref{fig:beat2} and \ref{fig:beat3}. We see a modulation frequency of twice what is expected as for every modulating wave there are two ``packets'' - one for positive cosine and one for negative.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{images/beat_wave_1.pdf}
+\caption{Plot of $Z = \cos(2\pi f_x t) + \sin(2\pi f_y t)$ for $f_x= 1$ and $f_y= 1.1$ and varied $\phi$. We see a carrier freqiency of 1.05 and a modulation frequency of 0.1.}
+\label{fig:beat1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{images/beat_wave_2.pdf}
+\caption{Plot of $Z = \cos(2\pi f_x t) + \sin(2\pi f_y t)$ for $f_x= 1.1$ and $f_y= 1$ and varied $\phi$. We see a carrier freqiency of 1.05 and a modulation frequency of 0.1.}
+\label{fig:beat2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{images/beat_wave_3.pdf}
+\caption{Plot of $Z = \cos(2\pi f_x t) + \sin(2\pi f_y t)$ for $f_x= 1$ and $f_y= 1.05$ and varied $\phi$. We see a carrier freqiency of 1.025 and a modulation frequency of 0.05.}
+\label{fig:beat3}
+\end{figure}
+\clearpage
+
+\section*{Question 5: The python experience}
+
+Many of the reasons I enjoy using python are outlined by Guido in his executive summary. I particularly like the high-level syntax and, most of all, the speed at which a program can be developed due to its ease of use. I have used this feature in the past to quickly explore and plot datasets before performing detailed analyses on them. I am self-taught in python, so I have likely picked up a number of bad practices that I will have to break out of, but this does mean I have almost exclusively used ipython notebook rather than in the terminal. I found this more cumbersome for this assignment as plots had to be written to file and opened with a separate program, but I am slowly getting the hang of this.
+
+I also have experience in C and Java. I find programming in python a much nicer experience due to the simpler syntax and the lack of memory allocation (looking at you, C). The impression I get is that these lower-level languages are much faster, and are used more prevalently in actual experiment (e.g. ROOT), so they are worth learning. But I would like to use python for as long as I am able! 
+
+\end{document}
