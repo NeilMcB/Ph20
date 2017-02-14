@@ -69,7 +69,7 @@ def extended_simpson(func, a, b, N):
 #Produces a plot to compare the 
 #accuracy of simpson and trapezoidal
 #methods for various N
-def error_convergence(func, a, b, Ns=np.logspace(1,3, num=10)):
+def error_convergence(func, a, b, Ns=np.logspace(1,4, num=10)):
     #from PSheet
     e_true = 1.7182818284590452354
     #assure np array used
