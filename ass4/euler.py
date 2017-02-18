@@ -47,7 +47,7 @@ def trajectory_calc(x_o, v_o, h, N, method):
 
 #Produces a plot of x and
 #v vs t and returns the arrays
-def trajectory_plot(x_o, v_o, h, N, method, filename)
+def trajectory_plot(x_o, v_o, h, N, method, filename):
 
     xs, vs, ts = trajectory_calc(x_o, v_o, h, N, method)
 
@@ -80,11 +80,11 @@ def error_calc(x_o, v_o, h, N, method):
     v_errs = v_analytic - v_euler
     E_errs = Es - Es[0]
     
-    return (x_errs, v_errs, E_errs)
+    return (ts, x_errs, v_errs, E_errs)
 
 def error_plot(x_o, v_o, h, N, method, filename, x_plot=True, v_plot=True, E_plot=False):
 
-    x_errs, v_errs, E_errs = error_calc(x_o, v_o, h, N, method)
+    ts, x_errs, v_errs, E_errs = error_calc(x_o, v_o, h, N, method)
 
     #plot x and v errors vs t
     fig, ax = plt.subplots(nrows=1, ncols=1)
@@ -122,7 +122,7 @@ def trunc_err(x_o, v_o, h_o, t, method, filename):
         N = int(t/h)   #integer required for indexing
 
         #perform the estimation
-        x_errs = error_calc(x_o, v_o, h, N, method)[0]
+        x_errs = error_calc(x_o, v_o, h, N, method)[1]
 
         #store the maximum value
         errs.append(max(x_errs))
