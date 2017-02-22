@@ -1,13 +1,13 @@
 #Makefile
+plots = images/Sec1Plt1.pdf images/Sec1Plt2.pdf images/Sec1Plt3.pdf images/Sec1Plt4.pdf images/Sec1Plt5.pdf images/Sec2Plt1.pdf images/Sec2Plt2.pdf images/Sec2Plt3.pdf images/Sec2Plt4.pdf
 
 #Generates report with updated images
-Ph20_Lab4.pdf : images/Sec1Plt1.pdf Euler_code.tex Ph20_Lab4.tex
-	pdflatex Ph20_Lab4.tex
-	pdflatex Ph20_Lab4.tex
+Ph20_Lab4.pdf : Ph20_Lab4.tex $(plots) Euler_code.pdf 
+	pdflatex $<
 
 #Generates images only
-images/Sec1Plt1.pdf : ass4.py euler.py
-	python ass4.py
+%.pdf : ass4.py euler.py
+	python $< $@
 
 #Generates code pdf only
 Euler_code.pdf : ass4.py euler.py
